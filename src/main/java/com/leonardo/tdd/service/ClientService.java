@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Service
 @Transactional
 public class ClientService {
@@ -15,7 +17,15 @@ public class ClientService {
 
     public void createClient(String firstname, String lastname, String emailAddress) {
         Client client = new Client(firstname, lastname, emailAddress);
-        client.setId(0);
+        client.setId(1);
         clientDao.save(client);
+    }
+
+    public boolean checkIsClientIsNull(int id) {
+        Optional<Client> client = clientDao.findById(id);
+        if (client.isPresent()) {
+            return true;
+        }
+        return false;
     }
 }
