@@ -48,6 +48,11 @@ public class CreateClientServiceTest {
         assertFalse(clientService.checkIsClientIsNull(0));
     }
 
+    @Test
+    public void deleteStudentService() {
+
+    }
+
     @AfterEach
     public void SetupAfterTransaction() {
         jdbcTemplate.execute("DELETE FROM client");
