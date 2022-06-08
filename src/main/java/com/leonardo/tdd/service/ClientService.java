@@ -28,4 +28,10 @@ public class ClientService {
         }
         return false;
     }
+
+    public void deleteStudent(int id) {
+        if (checkIsClientIsNull(id)) {
+            clientDao.deleteById(id);
+        }
+    }
 }

@@ -11,6 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.TestPropertySource;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestPropertySource("/application.properties")
@@ -50,7 +52,11 @@ public class CreateClientServiceTest {
 
     @Test
     public void deleteStudentService() {
-
+        Optional<Client> client = clientDao.findById(1);
+        assertTrue(client.isPresent(), "Return True");
+        clientService.deleteStudent(1);
+        client = clientDao.findById(1);
+        assertFalse(client.isPresent(), "Return False");
     }
 
     @AfterEach
