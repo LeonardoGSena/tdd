@@ -28,4 +28,9 @@ public class CreateClientServiceTest {
 
         assertEquals("leosena@gmail.com", client.getEmailAddress(), "find by email");
     }
+
+    @Test
+    public void isClientNullCheck() {
+
+    }
 }
